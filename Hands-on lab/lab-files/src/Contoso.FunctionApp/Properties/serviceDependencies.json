@@ -1,12 +1,7 @@
 {
   "dependencies": {
     "secrets1": {
-      "type": "secrets",
-      "connectionId": "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT"
-    },
-    "appInsights1": {
-      "type": "appInsights",
-      "connectionId": "APPINSIGHTS_INSTRUMENTATIONKEY"
+      "type": "secrets"
     }
   }
 }

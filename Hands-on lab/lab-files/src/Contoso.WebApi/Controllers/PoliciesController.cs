@@ -36,7 +36,6 @@ namespace Contoso.WebApi.Controllers
 
             if (policy == null)
             {
-                _logger.LogInformation("Policy with Id {id} not found.", id);
                 return new NotFoundObjectResult($"Policy with Id {id} not found.");
             }
 

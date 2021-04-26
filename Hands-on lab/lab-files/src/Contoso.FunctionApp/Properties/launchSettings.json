@@ -3,9 +3,9 @@
     "Contoso.FunctionApp": {
       "commandName": "Project",
       "environmentVariables": {
-        "containerUri": "https://contosompqiztwvluois.blob.core.windows.net/policies",
-        "sasToken": "?sv=2019-12-12&ss=bfqt&srt=co&sp=rwdlacupx&se=2021-11-13T03:39:58Z&st=2020-11-11T19:39:58Z&spr=https&sig=TKyK%2BfMzwRjNiSMjqnTBYstgo4Db8FTxBn5bn06oSWo%3D",
-        "APPINSIGHTS_INSTRUMENTATIONKEY": "9d95848a-7a22-42f7-bb64-db93c09c65dc"
+        "containerUri": "https://contosoqwzlzgblnldgu.blob.core.windows.net/policies",
+        "sasToken": "sp=r&st=2021-04-24T14:39:47Z&se=2021-05-03T22:39:47Z&spr=https&sv=2020-02-10&sr=c&sig=reJpLlkV%2BuQuM1LxCNezieGEMV%2BV0FZYfSWK4AY7Gn0%3D",
+        "InstrumentationKey": "7c36d3bd-7fda-4543-8e9a-23980a2df1db"
       }
     }
   }

@@ -45,11 +45,7 @@
       "sqlNetworkInterfaceName": "[concat(variables('sqlVirtualMachineName'), '-nic')]",
       "sqlPublicIpAddressName": "[concat(variables('sqlVirtualMachineName'), '-ip')]",
   
-      "virtualNetworkName": "[concat(resourceGroup().name, '-vnet')]",
-      "addressPrefix": "176.16.0.0/16",
-      "subnetName": "default",
-      "subnetPrefix": "176.16.0.0/24",
-  
+      
       "jbCustomScriptFileName": "configure-labvm.ps1",
       "jbCustomScriptUri": "[concat('https://raw.githubusercontent.com/microsoft/MCW-App-modernization/master/Hands-on%20lab/lab-files/ARM-template/', variables('jbCustomScriptFileName'))]",
       "sqlCustomScriptFileName": "configure-sqlvm.ps1",
@@ -166,16 +162,14 @@
         "type": "Microsoft.DataMigration/services",
         "apiVersion": "2018-04-19",
         "location": "[variables('location')]",
-        "dependsOn": [
-          "[variables('virtualNetworkName')]"
-        ],
+        "dependsOn": [],
         "sku": {
           "name": "Premium_4vCores",
           "tier": "Premium",
           "size": "4 vCores"
         },
         "properties": {
-          "virtualSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+       
         }
       },
       {

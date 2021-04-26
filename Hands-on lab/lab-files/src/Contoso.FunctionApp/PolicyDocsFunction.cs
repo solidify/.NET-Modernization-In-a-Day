@@ -26,8 +26,8 @@ namespace Contoso.FunctionApp
                 [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "{policyholder}/{policynumber}")] HttpRequest req , string policyholder , string  policynumber )
         // ******************************************
         {
-        
-            logger.LogTrace("PolicyDocs Function recieved a request for document '{policyholder}-{policynumber}.pdf'." ,policyholder,policynumber);
+            logger.LogInformation("PolicyDocs Function recieved a request for document '{policyholder}-{policynumber}.pdf'.", policyholder, policynumber);
+            logger.LogInformation($"PolicyDocs Function recieved a request for document '{policyholder}-{policynumber}.pdf'.");
             var fileBytes = await GetDocumentFromStorage(policyholder, policynumber);
             return fileBytes.Length > 0
                 ? (ActionResult)new FileContentResult(fileBytes, "application/pdf")
@@ -38,7 +38,6 @@ namespace Contoso.FunctionApp
         {
             // ******************************************
             // TODO #4: Insert code in this block to enable the Function App to retrieve configuration values from Appplication Settings.
-            //TODO add keyvault support
             var containerUri = Environment.GetEnvironmentVariable("containerUri");
             var sasToken = Environment.GetEnvironmentVariable("sasToken");
             // ******************************************
@@ -47,7 +46,6 @@ namespace Contoso.FunctionApp
             using (var request = new HttpRequestMessage())
                {
                   request.Method = HttpMethod.Get;
-                logger.LogTrace("starting a request to {uri}",uri);
                   request.RequestUri = new Uri(uri);
                   var response = await cli.SendAsync(request).ConfigureAwait(false);
                   if (response.IsSuccessStatusCode)
